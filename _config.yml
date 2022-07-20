@@ -213,7 +213,7 @@ disqus: "alpakadurumi.github.io"
 
 # Ruby Date Format to show dates of posts
 # date_format: "%B %-d, %Y"
-date_format: "%Y³â %m¿ù %d"
+date_format: "%Yë…„ %mì›” %d"
 
 # Facebook App ID
 #fb_app_id: ""
