@@ -10,6 +10,7 @@ hasCJKLanguage = true           # 한글/영어 혼용 글의 단어수·읽는 
 enableRobotsTXT = true          # robots.txt 생성 (검색엔진 크롤링 허용)
 enableInlineShortcodes = true
 enableEmoji = true
+enableGitInfo = true            # .Lastmod를 git 커밋 정보에서 자동 도출 (수정일)
 
 [pagination]
   pagerSize = 10                # 목록 페이지당 글 수
@@ -17,6 +18,10 @@ enableEmoji = true
 [minify]
   disableXML = true
   minifyOutput = true
+
+[frontmatter]
+  # 수정일(.Lastmod) 우선순위: git 커밋 시각 → front matter lastmod → date
+  lastmod = [':git', 'lastmod', 'date']
 
 [params]
   description = "그래픽스/엔진 프로그래밍 기술 노트"
