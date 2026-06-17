@@ -1,0 +1,68 @@
+name: Deploy Hugo site to Pages
+
+on:
+  # main 브랜치에 push될 때마다 실행
+  push:
+    branches: ["main"]
+  # Actions 탭에서 수동 실행도 허용
+  workflow_dispatch:
+
+# GITHUB_TOKEN 권한: Pages 배포에 필요한 최소 권한
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 동시 배포 1개만: 진행 중인 배포는 끊지 않고(run-to-completion) 대기열만 정리
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  # 1) 빌드: 깨끗한 우분투 러너에서 hugo 실행 → public/ 생성 → 아티팩트 업로드
+  build:
+    runs-on: ubuntu-latest
+    env:
+      HUGO_VERSION: 0.163.2          # 로컬과 동일 버전 고정 (재현성)
+    steps:
+      - name: Install Hugo CLI (extended)
+        run: |
+          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
+          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive       # PaperMod 서브모듈까지 체크아웃
+          fetch-depth: 0               # .GitInfo/lastmod 용 전체 히스토리
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+      - name: Build with Hugo
+        env:
+          HUGO_ENVIRONMENT: production
+          HUGO_ENV: production
+        run: |
+          hugo \
+            --gc \
+            --minify \
+            --baseURL "${{ steps.pages.outputs.base_url }}/"
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+
+  # 2) 배포: 빌드 아티팩트를 GitHub Pages에 배포
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
