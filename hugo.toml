@@ -1,5 +1,5 @@
 baseURL = "https://alpakadurumi.github.io/"
-title = "alpakaDurumi"
+title = "Grus monacha"
 theme = "PaperMod"
 
 # 언어 / 지역
@@ -20,7 +20,7 @@ enableEmoji = true
 
 [params]
   description = "그래픽스/엔진 프로그래밍 기술 노트"
-  author = "alpakaDurumi"       # SEO/RSS 메타데이터용으로는 유지
+  author = "alpakaDurumi"       # SEO/RSS 메타데이터용으로 유지 (GitHub 핸들 — 사이트 이름과 별개)
   hideAuthor = true             # 단, 글 제목 밑 메타 줄에는 작성자 숨김
 
   defaultTheme = "auto"         # auto = 시스템 설정 따름 (라이트/다크 토글 버튼 제공)
@@ -36,7 +36,7 @@ enableEmoji = true
 
   # 홈 상단 인사말 (그 아래에 글 목록이 뜨는 Home-Info 모드)
   [params.homeInfoParams]
-    Title = "alpakaDurumi"
+    Title = "Grus monacha"
     Content = "그래픽스, 엔진 프로그래밍에 대해 다룹니다."
 
   [[params.socialIcons]]
@@ -44,7 +44,9 @@ enableEmoji = true
     url = "https://github.com/alpakaDurumi"
 
   [params.assets]
-    disableHLJS = true          # PaperMod 번들 highlight.js 끄고 Hugo 내장 Chroma 사용
+    disableHLJS = true                  # PaperMod 번들 highlight.js 끄고 Hugo 내장 Chroma 사용
+    theme_color = "#1d1e20"             # <meta theme-color> — 매니페스트와 통일 (순백 대신 다크)
+    msapplication_TileColor = "#1d1e20" # Windows 타일 색
 
 [markup]
   [markup.highlight]

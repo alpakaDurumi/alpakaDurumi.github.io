@@ -1,0 +1,5 @@
+{{- /* PaperMod가 기본 출력하지 않는 head 항목 추가 (테마 파일 미수정). */ -}}
+{{- /* 앱 이름은 site.Title(= hugo.toml title) 하나를 단일 출처로 사용. */ -}}
+<link rel="manifest" href="{{ "site.webmanifest" | absURL }}">
+<meta name="application-name" content="{{ site.Title }}">
+<meta name="apple-mobile-web-app-title" content="{{ site.Title }}">
