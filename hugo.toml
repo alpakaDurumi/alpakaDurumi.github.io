@@ -1,0 +1,64 @@
+baseURL = "https://alpakadurumi.github.io/"
+title = "alpakaDurumi"
+theme = "PaperMod"
+
+# 언어 / 지역
+locale = "ko-kr"                # <html lang> + RSS 언어 (메타데이터/SEO/접근성). 구 languageCode
+defaultContentLanguage = "ko"   # 콘텐츠 기본 언어 + PaperMod UI 문구(ko.yaml)
+hasCJKLanguage = true           # 한글/영어 혼용 글의 단어수·읽는 시간 정확히 계산
+
+enableRobotsTXT = true          # robots.txt 생성 (검색엔진 크롤링 허용)
+enableInlineShortcodes = true
+enableEmoji = true
+
+[pagination]
+  pagerSize = 10                # 목록 페이지당 글 수
+
+[minify]
+  disableXML = true
+  minifyOutput = true
+
+[params]
+  description = "그래픽스/엔진 프로그래밍 기술 노트"
+  author = "alpakaDurumi"       # SEO/RSS 메타데이터용으로는 유지
+  hideAuthor = true             # 단, 글 제목 밑 메타 줄에는 작성자 숨김
+
+  defaultTheme = "auto"         # auto = 시스템 설정 따름 (라이트/다크 토글 버튼 제공)
+  disableThemeToggle = false
+
+  ShowReadingTime = false       # 읽는 시간 숨김 (제목 밑 메타 줄)
+  ShowWordCount = false         # 단어 수 숨김
+  ShowBreadCrumbs = true
+  ShowPostNavLinks = true       # 글 하단 이전/다음 글 링크
+  ShowCodeCopyButtons = true    # 코드블록 복사 버튼
+  ShowToc = true                # 목차
+  TocOpen = false               # 목차 기본 접힘
+
+  # 홈 상단 인사말 (그 아래에 글 목록이 뜨는 Home-Info 모드)
+  [params.homeInfoParams]
+    Title = "alpakaDurumi"
+    Content = "그래픽스, 엔진 프로그래밍에 대해 다룹니다."
+
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/alpakaDurumi"
+
+  [params.assets]
+    disableHLJS = true          # PaperMod 번들 highlight.js 끄고 Hugo 내장 Chroma 사용
+
+[markup]
+  [markup.highlight]
+    noClasses = false           # CSS 클래스로 출력 → PaperMod가 라이트/다크에 맞춰 코드색 적응
+    guessSyntax = true          # 언어 미지정 코드블록 추론
+
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    name = "Posts"
+    url = "/posts/"
+    weight = 10
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 20

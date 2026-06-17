@@ -1,0 +1,17 @@
+/*
+ * 라이트 모드 표면(배경) 색 — Catppuccin Latte 계열.
+ *
+ * PaperMod 기본 라이트는 페이지가 순수 흰색(#fff). 순백을 쓰지 않기 위해 Latte
+ * surface 색으로 교체한다. 페이지는 Mantle(약간 어두운 오프화이트)로 깔고,
+ * 코드블록만 가장 밝은 Base로 두어 페이지 위로 살짝 떠 보이게 하면서 Latte
+ * 토큰색이 의도된 Base 배경 위에 오도록 유지한다.
+ *
+ * 다크 모드(--theme: #1d1e20)는 이미 순흑이 아니므로 건드리지 않음.
+ */
+:root:not([data-theme="dark"]) {
+    --theme: #e6e9ef;          /* Mantle   — 페이지/헤더 배경 (순백 제거) */
+    --entry: #e6e9ef;          /* Mantle   — 카드/엔트리/TOC 배경 */
+    --code-block-bg: #eff1f5;  /* Base     — 펜스 코드블록 (가장 밝게 → 페이지 위로 뜸) */
+    --code-bg: #dce0e8;        /* Crust    — 인라인 코드 배경 */
+    --border: #ccd0da;         /* Surface0 — 경계선 */
+}

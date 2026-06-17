@@ -1,0 +1,84 @@
+/*
+ * 라이트 모드 코드블록 팔레트 (Catppuccin Latte).
+ *
+ * PaperMod는 코드 팔레트를 다크용(Catppuccin Macchiato) 한 벌만 제공하고,
+ * --code-block-bg를 라이트 모드에서도 어둡게 둔다. 이 파일은 코드블록이
+ * 페이지 테마를 따라가게 만든다:
+ *   라이트 모드 -> 밝은 배경 + Latte 토큰색  (아래 규칙)
+ *   다크  모드 -> 테마 기본값(Macchiato) 그대로 (건드리지 않음)
+ *
+ * :root:not([data-theme="dark"]) 로 스코프 → 라이트 모드에서만 적용.
+ * PaperMod의 assets/css/extended/*.css 메커니즘으로 맨 마지막에 로드되어 오버라이드됨.
+ */
+
+/* 1) 코드 기본 글자색 (테마가 어두운 배경 전제로 밝은 회색을 하드코딩함) */
+/*    코드블록 배경(--code-block-bg) 등 표면 색은 light-theme.css에서 관리 */
+:root:not([data-theme="dark"]) .md-content pre code {
+    color: #4c4f69;
+}
+
+/* 2) Chroma 토큰색 -> Catppuccin Latte (라이트 모드 전용) */
+:root:not([data-theme="dark"]) .chroma { color: #4c4f69; }
+:root:not([data-theme="dark"]) .chroma .x { color: #4c4f69 }
+:root:not([data-theme="dark"]) .chroma .err { color: #d20f39 }
+:root:not([data-theme="dark"]) .chroma .hl { background-color: #bcc0cc }
+:root:not([data-theme="dark"]) .chroma .lnt { color: #8c8fa1 }
+:root:not([data-theme="dark"]) .chroma .ln { color: #8c8fa1 }
+:root:not([data-theme="dark"]) .chroma .k { color: #8839ef }
+:root:not([data-theme="dark"]) .chroma .kc { color: #fe640b }
+:root:not([data-theme="dark"]) .chroma .kd { color: #d20f39 }
+:root:not([data-theme="dark"]) .chroma .kn { color: #179299 }
+:root:not([data-theme="dark"]) .chroma .kp { color: #8839ef }
+:root:not([data-theme="dark"]) .chroma .kr { color: #8839ef }
+:root:not([data-theme="dark"]) .chroma .kt { color: #d20f39 }
+:root:not([data-theme="dark"]) .chroma .na { color: #1e66f5 }
+:root:not([data-theme="dark"]) .chroma .nc { color: #df8e1d }
+:root:not([data-theme="dark"]) .chroma .no { color: #df8e1d }
+:root:not([data-theme="dark"]) .chroma .nd { color: #1e66f5; font-weight: bold }
+:root:not([data-theme="dark"]) .chroma .ni { color: #179299 }
+:root:not([data-theme="dark"]) .chroma .ne { color: #fe640b }
+:root:not([data-theme="dark"]) .chroma .nl { color: #04a5e5 }
+:root:not([data-theme="dark"]) .chroma .nn { color: #fe640b }
+:root:not([data-theme="dark"]) .chroma .nx { color: #4c4f69 }
+:root:not([data-theme="dark"]) .chroma .py { color: #fe640b }
+:root:not([data-theme="dark"]) .chroma .nt { color: #8839ef }
+:root:not([data-theme="dark"]) .chroma .nb { color: #04a5e5 }
+:root:not([data-theme="dark"]) .chroma .bp { color: #04a5e5 }
+:root:not([data-theme="dark"]) .chroma .nv { color: #dc8a78 }
+:root:not([data-theme="dark"]) .chroma .vc { color: #dc8a78 }
+:root:not([data-theme="dark"]) .chroma .vg { color: #dc8a78 }
+:root:not([data-theme="dark"]) .chroma .vi { color: #dc8a78 }
+:root:not([data-theme="dark"]) .chroma .vm { color: #dc8a78 }
+:root:not([data-theme="dark"]) .chroma .nf { color: #1e66f5 }
+:root:not([data-theme="dark"]) .chroma .fm { color: #1e66f5 }
+:root:not([data-theme="dark"]) .chroma .ld { color: #4c4f69 }
+:root:not([data-theme="dark"]) .chroma .s { color: #40a02b }
+:root:not([data-theme="dark"]) .chroma .sa { color: #d20f39 }
+:root:not([data-theme="dark"]) .chroma .sb { color: #40a02b }
+:root:not([data-theme="dark"]) .chroma .sc { color: #40a02b }
+:root:not([data-theme="dark"]) .chroma .dl { color: #1e66f5 }
+:root:not([data-theme="dark"]) .chroma .sd { color: #9ca0b0 }
+:root:not([data-theme="dark"]) .chroma .s2 { color: #40a02b }
+:root:not([data-theme="dark"]) .chroma .se { color: #1e66f5 }
+:root:not([data-theme="dark"]) .chroma .sh { color: #9ca0b0 }
+:root:not([data-theme="dark"]) .chroma .si { color: #40a02b }
+:root:not([data-theme="dark"]) .chroma .sx { color: #40a02b }
+:root:not([data-theme="dark"]) .chroma .sr { color: #179299 }
+:root:not([data-theme="dark"]) .chroma .s1 { color: #40a02b }
+:root:not([data-theme="dark"]) .chroma .ss { color: #40a02b }
+:root:not([data-theme="dark"]) .chroma .m { color: #fe640b }
+:root:not([data-theme="dark"]) .chroma .mb { color: #fe640b }
+:root:not([data-theme="dark"]) .chroma .mf { color: #fe640b }
+:root:not([data-theme="dark"]) .chroma .mh { color: #fe640b }
+:root:not([data-theme="dark"]) .chroma .mi { color: #fe640b }
+:root:not([data-theme="dark"]) .chroma .il { color: #fe640b }
+:root:not([data-theme="dark"]) .chroma .mo { color: #fe640b }
+:root:not([data-theme="dark"]) .chroma .o { color: #04a5e5; font-weight: bold }
+:root:not([data-theme="dark"]) .chroma .ow { color: #04a5e5; font-weight: bold }
+:root:not([data-theme="dark"]) .chroma .c { color: #9ca0b0; font-style: italic }
+:root:not([data-theme="dark"]) .chroma .ch { color: #acb0be; font-style: italic }
+:root:not([data-theme="dark"]) .chroma .cm { color: #9ca0b0; font-style: italic }
+:root:not([data-theme="dark"]) .chroma .c1 { color: #9ca0b0; font-style: italic }
+:root:not([data-theme="dark"]) .chroma .cs { color: #9ca0b0; font-style: italic }
+:root:not([data-theme="dark"]) .chroma .cp { color: #9ca0b0; font-style: italic }
+:root:not([data-theme="dark"]) .chroma .cpf { color: #9ca0b0; font-weight: bold; font-style: italic }
