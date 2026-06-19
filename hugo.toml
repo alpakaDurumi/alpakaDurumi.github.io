@@ -53,6 +53,10 @@ enableGitInfo = true            # .Lastmod를 git 커밋 정보에서 자동 도
     theme_color = "#1d1e20"             # <meta theme-color> — 매니페스트와 통일 (순백 대신 다크)
     msapplication_TileColor = "#1d1e20" # Windows 타일 색
 
+  # Google Search Console 소유권 인증 → <meta name="google-site-verification"> 자동 출력 (PaperMod head.html)
+  [params.analytics.google]
+    SiteVerificationTag = "e-BlTBe-p3-03BL-RfkcAJw-rIsrt1UijMcfWABReq8"
+
 [markup]
   [markup.highlight]
     noClasses = false           # CSS 클래스로 출력 → PaperMod가 라이트/다크에 맞춰 코드색 적응
