@@ -1,0 +1,167 @@
+/* One Dark / One Light 통합 테마 — 단일 파일.
+ *
+ * 사이트 표면색(--theme 등) + 신택스 토큰(.chroma)을 라이트/다크 모두 여기서 정의.
+ * - 라이트: :root:not([data-theme="dark"])  → One Light
+ * - 다크  : :root[data-theme="dark"]         → One Dark
+ * PaperMod의 extended/*.css는 core 뒤에 번들되고, 위 스코프가 테마가 기본 제공하는
+ * `.chroma` 규칙보다 우선순위(specificity + 로드 순서)가 높아 양쪽 모드 모두 덮어씀.
+ * 코드블록 배경은 --code-block-bg가 결정(.chroma 배경은 chroma-mod에서 unset !important).
+ */
+
+/* ── 표면색 ── */
+:root:not([data-theme="dark"]) {
+    --theme: #fafafa;
+    --entry: #fafafa;
+    --primary: #383a42;
+    --secondary: #a0a1a7;
+    --tertiary: #d7d7d9;
+    --content: #383a42;
+    --code-block-bg: #f0f0f0;
+    --code-bg: #ebebec;
+    --border: #e1e1e2;
+}
+:root[data-theme="dark"] {
+    --theme: #282c34;
+    --entry: #2c313a;
+    --primary: #c8ccd4;
+    --secondary: #828997;
+    --tertiary: #3b4048;
+    --content: #abb2bf;
+    --code-block-bg: #21252b;
+    --code-bg: #2c313a;
+    --border: #3b4048;
+}
+
+/* ── 신택스: One Light (라이트) ── */
+:root:not([data-theme="dark"]) .md-content pre code { color: #383a42; }
+:root:not([data-theme="dark"]) .chroma { color: #383a42; }
+:root:not([data-theme="dark"]) .chroma .x { color: #383a42 }
+:root:not([data-theme="dark"]) .chroma .err { color: #e45649 }
+:root:not([data-theme="dark"]) .chroma .hl { background-color: #e5e5e6 }
+:root:not([data-theme="dark"]) .chroma .lnt { color: #9d9d9f }
+:root:not([data-theme="dark"]) .chroma .ln { color: #9d9d9f }
+:root:not([data-theme="dark"]) .chroma .k { color: #a626a4 }
+:root:not([data-theme="dark"]) .chroma .kc { color: #986801 }
+:root:not([data-theme="dark"]) .chroma .kd { color: #a626a4 }
+:root:not([data-theme="dark"]) .chroma .kn { color: #a626a4 }
+:root:not([data-theme="dark"]) .chroma .kp { color: #a626a4 }
+:root:not([data-theme="dark"]) .chroma .kr { color: #a626a4 }
+:root:not([data-theme="dark"]) .chroma .kt { color: #c18401 }
+:root:not([data-theme="dark"]) .chroma .na { color: #986801 }
+:root:not([data-theme="dark"]) .chroma .nc { color: #c18401 }
+:root:not([data-theme="dark"]) .chroma .no { color: #986801 }
+:root:not([data-theme="dark"]) .chroma .nd { color: #4078f2 }
+:root:not([data-theme="dark"]) .chroma .ni { color: #383a42 }
+:root:not([data-theme="dark"]) .chroma .ne { color: #c18401 }
+:root:not([data-theme="dark"]) .chroma .nl { color: #383a42 }
+:root:not([data-theme="dark"]) .chroma .nn { color: #383a42 }
+:root:not([data-theme="dark"]) .chroma .nx { color: #383a42 }
+:root:not([data-theme="dark"]) .chroma .py { color: #383a42 }
+:root:not([data-theme="dark"]) .chroma .nt { color: #e45649 }
+:root:not([data-theme="dark"]) .chroma .nb { color: #0184bc }
+:root:not([data-theme="dark"]) .chroma .bp { color: #e45649 }
+:root:not([data-theme="dark"]) .chroma .nv { color: #e45649 }
+:root:not([data-theme="dark"]) .chroma .vc { color: #e45649 }
+:root:not([data-theme="dark"]) .chroma .vg { color: #e45649 }
+:root:not([data-theme="dark"]) .chroma .vi { color: #e45649 }
+:root:not([data-theme="dark"]) .chroma .vm { color: #e45649 }
+:root:not([data-theme="dark"]) .chroma .nf { color: #4078f2 }
+:root:not([data-theme="dark"]) .chroma .fm { color: #4078f2 }
+:root:not([data-theme="dark"]) .chroma .ld { color: #383a42 }
+:root:not([data-theme="dark"]) .chroma .s { color: #50a14f }
+:root:not([data-theme="dark"]) .chroma .sa { color: #50a14f }
+:root:not([data-theme="dark"]) .chroma .sb { color: #50a14f }
+:root:not([data-theme="dark"]) .chroma .sc { color: #50a14f }
+:root:not([data-theme="dark"]) .chroma .dl { color: #50a14f }
+:root:not([data-theme="dark"]) .chroma .sd { color: #a0a1a7 }
+:root:not([data-theme="dark"]) .chroma .s2 { color: #50a14f }
+:root:not([data-theme="dark"]) .chroma .se { color: #0184bc }
+:root:not([data-theme="dark"]) .chroma .sh { color: #50a14f }
+:root:not([data-theme="dark"]) .chroma .si { color: #50a14f }
+:root:not([data-theme="dark"]) .chroma .sx { color: #50a14f }
+:root:not([data-theme="dark"]) .chroma .sr { color: #0184bc }
+:root:not([data-theme="dark"]) .chroma .s1 { color: #50a14f }
+:root:not([data-theme="dark"]) .chroma .ss { color: #50a14f }
+:root:not([data-theme="dark"]) .chroma .m { color: #986801 }
+:root:not([data-theme="dark"]) .chroma .mb { color: #986801 }
+:root:not([data-theme="dark"]) .chroma .mf { color: #986801 }
+:root:not([data-theme="dark"]) .chroma .mh { color: #986801 }
+:root:not([data-theme="dark"]) .chroma .mi { color: #986801 }
+:root:not([data-theme="dark"]) .chroma .il { color: #986801 }
+:root:not([data-theme="dark"]) .chroma .mo { color: #986801 }
+:root:not([data-theme="dark"]) .chroma .o { color: #383a42 }
+:root:not([data-theme="dark"]) .chroma .ow { color: #a626a4 }
+:root:not([data-theme="dark"]) .chroma .c { color: #a0a1a7; font-style: italic }
+:root:not([data-theme="dark"]) .chroma .ch { color: #a0a1a7; font-style: italic }
+:root:not([data-theme="dark"]) .chroma .cm { color: #a0a1a7; font-style: italic }
+:root:not([data-theme="dark"]) .chroma .c1 { color: #a0a1a7; font-style: italic }
+:root:not([data-theme="dark"]) .chroma .cs { color: #a0a1a7; font-style: italic }
+:root:not([data-theme="dark"]) .chroma .cp { color: #a0a1a7; font-style: italic }
+:root:not([data-theme="dark"]) .chroma .cpf { color: #a0a1a7; font-style: italic }
+
+/* ── 신택스: One Dark (다크) ── */
+:root[data-theme="dark"] .md-content pre code { color: #abb2bf; }
+:root[data-theme="dark"] .chroma { color: #abb2bf; }
+:root[data-theme="dark"] .chroma .x { color: #abb2bf }
+:root[data-theme="dark"] .chroma .err { color: #e06c75 }
+:root[data-theme="dark"] .chroma .hl { background-color: #2c313a }
+:root[data-theme="dark"] .chroma .lnt { color: #4b5263 }
+:root[data-theme="dark"] .chroma .ln { color: #4b5263 }
+:root[data-theme="dark"] .chroma .k { color: #c678dd }
+:root[data-theme="dark"] .chroma .kc { color: #d19a66 }
+:root[data-theme="dark"] .chroma .kd { color: #c678dd }
+:root[data-theme="dark"] .chroma .kn { color: #c678dd }
+:root[data-theme="dark"] .chroma .kp { color: #c678dd }
+:root[data-theme="dark"] .chroma .kr { color: #c678dd }
+:root[data-theme="dark"] .chroma .kt { color: #e5c07b }
+:root[data-theme="dark"] .chroma .na { color: #d19a66 }
+:root[data-theme="dark"] .chroma .nc { color: #e5c07b }
+:root[data-theme="dark"] .chroma .no { color: #d19a66 }
+:root[data-theme="dark"] .chroma .nd { color: #61afef }
+:root[data-theme="dark"] .chroma .ni { color: #abb2bf }
+:root[data-theme="dark"] .chroma .ne { color: #e5c07b }
+:root[data-theme="dark"] .chroma .nl { color: #abb2bf }
+:root[data-theme="dark"] .chroma .nn { color: #abb2bf }
+:root[data-theme="dark"] .chroma .nx { color: #abb2bf }
+:root[data-theme="dark"] .chroma .py { color: #abb2bf }
+:root[data-theme="dark"] .chroma .nt { color: #e06c75 }
+:root[data-theme="dark"] .chroma .nb { color: #56b6c2 }
+:root[data-theme="dark"] .chroma .bp { color: #e06c75 }
+:root[data-theme="dark"] .chroma .nv { color: #e06c75 }
+:root[data-theme="dark"] .chroma .vc { color: #e06c75 }
+:root[data-theme="dark"] .chroma .vg { color: #e06c75 }
+:root[data-theme="dark"] .chroma .vi { color: #e06c75 }
+:root[data-theme="dark"] .chroma .vm { color: #e06c75 }
+:root[data-theme="dark"] .chroma .nf { color: #61afef }
+:root[data-theme="dark"] .chroma .fm { color: #61afef }
+:root[data-theme="dark"] .chroma .ld { color: #abb2bf }
+:root[data-theme="dark"] .chroma .s { color: #98c379 }
+:root[data-theme="dark"] .chroma .sa { color: #98c379 }
+:root[data-theme="dark"] .chroma .sb { color: #98c379 }
+:root[data-theme="dark"] .chroma .sc { color: #98c379 }
+:root[data-theme="dark"] .chroma .dl { color: #98c379 }
+:root[data-theme="dark"] .chroma .sd { color: #5c6370 }
+:root[data-theme="dark"] .chroma .s2 { color: #98c379 }
+:root[data-theme="dark"] .chroma .se { color: #56b6c2 }
+:root[data-theme="dark"] .chroma .sh { color: #98c379 }
+:root[data-theme="dark"] .chroma .si { color: #98c379 }
+:root[data-theme="dark"] .chroma .sx { color: #98c379 }
+:root[data-theme="dark"] .chroma .sr { color: #56b6c2 }
+:root[data-theme="dark"] .chroma .s1 { color: #98c379 }
+:root[data-theme="dark"] .chroma .ss { color: #98c379 }
+:root[data-theme="dark"] .chroma .m { color: #d19a66 }
+:root[data-theme="dark"] .chroma .mb { color: #d19a66 }
+:root[data-theme="dark"] .chroma .mf { color: #d19a66 }
+:root[data-theme="dark"] .chroma .mh { color: #d19a66 }
+:root[data-theme="dark"] .chroma .mi { color: #d19a66 }
+:root[data-theme="dark"] .chroma .il { color: #d19a66 }
+:root[data-theme="dark"] .chroma .mo { color: #d19a66 }
+:root[data-theme="dark"] .chroma .o { color: #56b6c2 }
+:root[data-theme="dark"] .chroma .ow { color: #c678dd }
+:root[data-theme="dark"] .chroma .c { color: #5c6370; font-style: italic }
+:root[data-theme="dark"] .chroma .ch { color: #5c6370; font-style: italic }
+:root[data-theme="dark"] .chroma .cm { color: #5c6370; font-style: italic }
+:root[data-theme="dark"] .chroma .c1 { color: #5c6370; font-style: italic }
+:root[data-theme="dark"] .chroma .cs { color: #5c6370; font-style: italic }
+:root[data-theme="dark"] .chroma .cp { color: #5c6370; font-style: italic }
+:root[data-theme="dark"] .chroma .cpf { color: #5c6370; font-style: italic }
