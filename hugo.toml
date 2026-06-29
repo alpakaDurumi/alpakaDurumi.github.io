@@ -63,6 +63,8 @@ enableGitInfo = true            # .Lastmod를 git 커밋 정보에서 자동 도
   [markup.highlight]
     noClasses = false           # CSS 클래스로 출력 → PaperMod가 라이트/다크에 맞춰 코드색 적응
     guessSyntax = true          # 언어 미지정 코드블록 추론
+  [markup.goldmark.renderer]
+    unsafe = true
 
 [menu]
   [[menu.main]]
