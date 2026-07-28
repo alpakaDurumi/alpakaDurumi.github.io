@@ -46,6 +46,14 @@ act pull_request -W .github/workflows/binary_size.yml -j build \
 
 이때 `x86_64-gcc` 부분은 어떤 config를 사용하느냐에 따라 달라진다. 그리고 앞의 `rm -rf`는 이전 실행에서 남은 아티팩트가 섞이지 않게 하기 위함이다.
 
+### -W
+
+대상 워크플로우를 지정한다.
+
+### -j
+
+대상 job을 지정한다.
+
 ### --matrix
 
 matrix에 정의된 조합 중 어떤 것을 실행할지 `필드이름:값` 형태로 지정한다. `binary_size.yml`의 각 matrix 항목이 `key: x86_64-gcc`처럼 `key` 필드로 구분되고 있기 때문에 `key:`가 붙는다.
